@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	#title
+		p Welcome to #{title}
+		
+	#login
+		p Please Log In
+		- if(error)
+			div.alert-error #{error}
+		br
+		div
+			form(action='/login', method='post')
+				div.control-group.input-append
+					label Username     
+					input(type='text', name='username')
+					br
+					label Password       
+					input(type='password', name='password')
+				button(type='submit') Log-in	
+			form(action='/register', method='get')
+				button(type='register') Register	

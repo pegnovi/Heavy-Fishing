@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+	#game
+		div			
+			p#playerPoints= pp 
+			p#playerCash= pc
+			p#playerLineLife= pllf
+			p#playerRodLevel= prl
+			p#playerShipLevel= psl
+			
+			script(src='javascripts/clientToDatabase.js')
+			script(src='javascripts/stateStuff.js')
+			script(src='javascripts/gmp-engine.1.7.4.js')
+			script(src='javascripts/game0.js')
+			script(src='javascripts/game4.js')
+	
+	#logout
+		div(style="position: absolute; top: 450px; left: 10px;")
+			form(action="/shop", method="post")
+				button(type="submit") Shop
+			form(action="/leaderboard", method="get")
+				button(type="submit") Leaderboard
+			form(action="/logout", method="post")
+				button(type="submit") Logout
+	
+
+	#instructions
+		div(style="position: absolute; top:60px; left:700px;")
+			img(src="images/instructions.png", width:500px, height:300px)
+	

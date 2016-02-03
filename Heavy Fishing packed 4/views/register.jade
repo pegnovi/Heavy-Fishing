@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	#title
+		p #{title}
+	
+	#login
+		- if(error)
+			div.alert-error #{error}
+		br
+		div
+			form(action='/register', method='post')
+				div.control-group.input-append
+					input(type='text', name='username')
+					label Desired Username
+					br
+					input(type='password', name='password')
+					label Desired Password
+				button(type='submit') Submit Registration	

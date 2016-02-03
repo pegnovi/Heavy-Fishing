@@ -1,0 +1,51 @@
+extends layout
+
+block content
+	#title
+		p #{title} Shop
+		p#playerPoints= pp 
+		p#playerCash= pc
+		p#playerLineLife= pllf
+		p#playerRodLevel= prl
+		p#playerShipLevel= psl
+		p#playerLoot1= pl1
+		p#playerLoot2= pl2
+		p#playerLoot3= pl3
+		p#playerLoot4= pl4
+		p#playerLoot5= pl5
+		script(src='javascripts/clientToDatabase.js')
+		script(src='javascripts/stateStuffShop.js')
+		
+		div#shopStatsTop			
+			p Player Stats
+			pre#shopStats
+			img#l1(src="images/shop/shopLoot1.png")
+			img#l2(src="images/shop/shopLoot2.png")
+			img#l3(src="images/shop/shopLoot3.png")
+			img#l4(src="images/shop/shopLoot4.png")
+			img#l5(src="images/shop/shopLoot5.png")
+			
+		div#shopMenu
+			p
+				button#repairButton(type="submit") Repair Line
+				'Repairs your rod's fishing line.'
+			p
+				button#rodUpgradeButton(type="submit") Upgrade Rod
+				'Increases rod durability. (Cost is 1000 cash)'
+			p	
+				button#shipUpgradeButton(type="submit") Upgrade Ship
+				'Increases ship speed. (Cost is 1000 cash)'
+			
+			p
+				label ' --Item Type-- ' 
+				input#sellItemType
+				br
+				label '-Item Quantity-'
+				input#sellItemQuantity 
+				br
+				button#sellItemButton(type="submit") Sell Item
+				
+		script(src='javascripts/shopFunctions.js')
+		
+		form(action="/", method="get")
+				button(type="submit") Exit Shop
